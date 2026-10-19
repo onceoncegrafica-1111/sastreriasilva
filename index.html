@@ -1,43 +1,71 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>Sastrería Silva | Confección & Alquiler de Trajes a Medida · Encarnación</title>
-    <meta name="description" content="Alta sastrería y alquiler de trajes a medida en Encarnación, Paraguay. Calce perfecto para bodas, colaciones y galas.">
+    <meta name="description" content="Alta sastrería y alquiler de trajes a medida en Encarnación, Paraguay. Calce y distinción para bodas, colaciones y eventos.">
 
-    <!-- Tipografía Editorial Internacional de Lujo -->
+    <!-- Tipografías de Alta Costura: Cinzel, Cormorant Garamond & Montserrat -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* =========================================================
-           PALETA ALABASTRO, LINO FINO & ORO DE SASTRERÍA
+           SISTEMA DE DISEÑO: ALTA LEGIBILIDAD & TEXTURA VISIBLE
            ========================================================= */
         :root {
-            --fondo-lienzo: #FAF8F5;
-            --fondo-marfil: #FFFFFF;
-            --travertino-suave: #F4EFE6;
-            --tinte-lino: #ECE6DC;
+            /* MODO CLARO: CREMITA / LINO OFF-WHITE NOBLE */
+            --bg-canvas: #F6F3EC;
+            --bg-canvas-subtle: #EAE3D5;
+            --bg-card: #FFFFFF;
+            --bg-card-inner: #FBF9F5;
+            --borde-tarjeta: rgba(184, 142, 65, 0.45);
+            --borde-stitch: rgba(184, 142, 65, 0.55);
             
-            /* Textos y Contraste */
-            --negro-tinta: #14171C;
-            --gris-carbón: #2D333D;
-            --gris-sedoso: #5A6270;
-            --dorado-texto: #8F6927;
+            /* Textos con Mayor Contraste y Nitidez */
+            --texto-principal: #11141A;
+            --texto-cuerpo: #262D38;
+            --texto-suave: #4A5361;
+            --oro-destacado: #7A571B;
             
-            /* Metales y Acentos */
-            --oro-satinado: #C5A059;
-            --oro-bronce: #9E7A38;
-            --oro-champagne: #DFBE82;
+            --oro-satin: #B88E41;
+            --oro-champagne: #DDBB7B;
             --rojo-corbata: #9E1B26;
-            --hilo-hilvan: rgba(197, 160, 89, 0.45);
             
-            /* Sombras suaves y curvas */
-            --sombra-editorial: 0 16px 36px -10px rgba(45, 35, 20, 0.08), 0 2px 10px rgba(0,0,0,0.03);
-            --sombra-hover: 0 24px 45px -8px rgba(143, 105, 39, 0.18), 0 4px 14px rgba(0,0,0,0.05);
-            --transicion-sastre: cubic-bezier(0.22, 1, 0.36, 1);
+            /* Opacidad reforzada del patrón diagonal */
+            --patron-stroke-op: 0.32;
+            --resplandor-solar: rgba(223, 190, 130, 0.35);
+            
+            --sombra-elegante: 0 16px 36px -8px rgba(40, 30, 15, 0.10), 0 2px 8px rgba(0,0,0,0.04);
+            --sombra-hover: 0 22px 48px -6px rgba(122, 87, 27, 0.22), 0 4px 14px rgba(0,0,0,0.08);
+            --transicion: cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        [data-theme="dark"] {
+            /* MODO OSCURO: BESPOKE CHARCOAL */
+            --bg-canvas: #0B0F15;
+            --bg-canvas-subtle: #141A23;
+            --bg-card: #151C26;
+            --bg-card-inner: #1C2431;
+            --borde-tarjeta: rgba(223, 190, 130, 0.32);
+            --borde-stitch: rgba(223, 190, 130, 0.45);
+            
+            --texto-principal: #F8F6F0;
+            --texto-cuerpo: #D2D9E4;
+            --texto-suave: #A0ABBD;
+            --oro-destacado: #E5CCA0;
+            
+            --oro-satin: #DFBE82;
+            --oro-champagne: #F5E5C9;
+            --rojo-corbata: #B92D39;
+            
+            --patron-stroke-op: 0.22;
+            --resplandor-solar: rgba(197, 160, 89, 0.16);
+            
+            --sombra-elegante: 0 18px 40px -8px rgba(0, 0, 0, 0.75);
+            --sombra-hover: 0 24px 50px -6px rgba(0, 0, 0, 0.95), 0 0 25px rgba(223, 190, 130, 0.18);
         }
 
         * {
@@ -45,6 +73,7 @@
             padding: 0;
             box-sizing: border-box;
             -webkit-tap-highlight-color: transparent;
+            transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease;
         }
 
         html {
@@ -52,8 +81,8 @@
         }
 
         body {
-            background-color: var(--fondo-lienzo);
-            color: var(--negro-tinta);
+            background-color: var(--bg-canvas);
+            color: var(--texto-principal);
             font-family: 'Montserrat', sans-serif;
             min-height: 100vh;
             min-height: 100dvh;
@@ -63,149 +92,180 @@
             justify-content: space-between;
             position: relative;
             overflow-x: hidden;
-            padding: calc(env(safe-area-inset-top, 20px) + 24px) 18px calc(env(safe-area-inset-bottom, 20px) + 32px);
+            padding: calc(env(safe-area-inset-top, 20px) + 16px) 16px calc(env(safe-area-inset-bottom, 20px) + 28px);
             -webkit-font-smoothing: antialiased;
         }
 
         /* =========================================================
-           FONDO ATMOSFÉRICO: TEXTURA DE TEJIDO FINO & RESPLANDOR
+           FONDO CON TEXTURA DIAGONAL VISIBLE Y BIEN DEFINIDA
            ========================================================= */
-        .tailor-scenic-bg {
+        .tailor-pattern-bg {
             position: fixed;
             inset: 0;
             width: 100vw;
             height: 100vh;
             z-index: -1;
             pointer-events: none;
-            background-color: var(--fondo-lienzo);
-            /* Tejido espiga ultra-sutil en blanco roto */
+            background-color: var(--bg-canvas);
+            /* Patrón de puntada diagonal con opacidad optimizada */
             background-image: 
-                radial-gradient(circle at 50% 0%, rgba(223, 190, 130, 0.22) 0%, transparent 55%),
-                radial-gradient(circle at 90% 70%, rgba(158, 27, 38, 0.04) 0%, transparent 45%),
-                url("data:image/svg+xml,%3Csvg width='36' height='36' viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 9 L9 0 L18 9 L27 0 L36 9 M0 27 L9 18 L18 27 L27 18 L36 27 M0 18 L9 27 L18 18 L27 27 L36 18 M0 0 L9 9 L18 0 L27 9 L36 0' fill='none' stroke='%23C5A059' stroke-width='0.55' stroke-opacity='0.08'/%3E%3C/svg%3E");
-            background-size: auto, auto, 36px 36px;
+                radial-gradient(ellipse 85% 55% at 50% 0%, var(--resplandor-solar) 0%, transparent 70%),
+                radial-gradient(circle at 85% 80%, rgba(158, 27, 38, 0.07) 0%, transparent 50%),
+                url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B88E41' stroke-width='1.1'%3E%3Cpath d='M0 40 L40 0' stroke-opacity='0.34' stroke-dasharray='4 3'/%3E%3Cpath d='M-10 10 L10 -10' stroke-opacity='0.26' stroke-dasharray='4 3'/%3E%3Cpath d='M30 50 L50 30' stroke-opacity='0.26' stroke-dasharray='4 3'/%3E%3C/g%3E%3C/svg%3E");
+            background-size: auto, auto, 40px 40px;
         }
 
-        /* Contenedor Editorial Central */
-        .atelier-stage {
+        /* Barra de Modo Claro / Oscuro */
+        .top-toolbar {
+            width: 100%;
+            max-width: 440px;
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 8px;
+            z-index: 20;
+        }
+
+        .theme-toggle-btn {
+            background: var(--bg-card);
+            border: 1.2px solid var(--borde-tarjeta);
+            color: var(--texto-principal);
+            padding: 8px 16px;
+            border-radius: 25px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s var(--transicion);
+        }
+
+        .theme-toggle-btn svg {
+            width: 15px;
+            height: 15px;
+            stroke: var(--oro-satin);
+            stroke-width: 2.2;
+            fill: none;
+            transition: transform 0.4s var(--transicion);
+        }
+
+        .theme-toggle-btn:hover {
+            transform: translateY(-2px);
+            border-color: var(--oro-satin);
+        }
+
+        .theme-toggle-btn:hover svg {
+            transform: rotate(25deg);
+        }
+
+        /* Contenedor Principal */
+        .stage-container {
             width: 100%;
             max-width: 440px;
             display: flex;
             flex-direction: column;
-            gap: 28px;
+            gap: 26px;
             margin: auto;
             position: relative;
             z-index: 10;
         }
 
         /* =========================================================
-           ENCABEZADO CON EL LOGO ORIGINAL PERFECTO
+           ENCABEZADO & LOGO
            ========================================================= */
-        .brand-showcase {
+        .brand-header {
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            gap: 16px;
+            gap: 14px;
         }
 
-        .logo-frame {
+        .logo-wrapper {
             position: relative;
             width: 100%;
-            max-width: 260px;
+            max-width: 280px;
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 8px 0;
-            filter: drop-shadow(0 14px 22px rgba(0, 0, 0, 0.08));
-            transition: transform 0.4s var(--transicion-sastre);
+            padding: 4px 0;
+            filter: drop-shadow(0 14px 20px rgba(0, 0, 0, 0.12));
+            transition: transform 0.4s var(--transicion);
         }
 
-        .logo-frame:hover {
+        .logo-wrapper:hover {
             transform: scale(1.02);
         }
 
-        .official-logo-img {
+        .brand-logo-img {
             width: 100%;
             height: auto;
-            display: block;
+            max-height: 275px;
             object-fit: contain;
-            max-height: 250px;
+            display: block;
         }
 
-        /* Vector de Respaldo por si aún no carga el logo.png local */
-        .svg-logo-fallback {
-            display: none;
-            width: 100%;
-            max-width: 250px;
-            height: auto;
-        }
-
-        .brand-credentials {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .master-tailor-badge {
+        .atelier-ribbon {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 6px 16px;
-            border-radius: 30px;
-            background: rgba(197, 160, 89, 0.12);
-            border: 1px solid var(--oro-satinado);
-            color: var(--dorado-texto);
-            font-size: 0.68rem;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background: rgba(184, 142, 65, 0.14);
+            border: 1.2px solid var(--borde-tarjeta);
+            color: var(--oro-destacado);
+            font-size: 0.74rem;
             font-weight: 700;
-            letter-spacing: 0.24em;
+            letter-spacing: 0.20em;
             text-transform: uppercase;
         }
 
-        .master-tailor-badge::before,
-        .master-tailor-badge::after {
-            content: '•';
+        .atelier-ribbon::before,
+        .atelier-ribbon::after {
+            content: '♦';
             color: var(--rojo-corbata);
-            font-size: 0.8rem;
+            font-size: 0.70rem;
         }
 
-        .brand-motto {
+        .editorial-quote {
             font-family: 'Cormorant Garamond', serif;
             font-style: italic;
-            font-size: 1.18rem;
+            font-size: 1.28rem;
             font-weight: 600;
-            color: var(--gris-carbón);
-            line-height: 1.35;
-            max-width: 370px;
+            color: var(--texto-cuerpo);
+            line-height: 1.38;
+            max-width: 390px;
         }
 
-        .brand-location-pin {
-            font-size: 0.72rem;
+        .geo-location {
+            font-size: 0.76rem;
             font-weight: 600;
             letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--gris-sedoso);
+            color: var(--texto-suave);
             display: flex;
             align-items: center;
             gap: 6px;
         }
 
-        .brand-location-pin svg {
-            width: 13px;
-            height: 13px;
-            stroke: var(--oro-satinado);
+        .geo-location svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--oro-satin);
             fill: none;
-            stroke-width: 2;
+            stroke-width: 2.2;
         }
 
         /* =========================================================
-           BOTÓN WHATSAPP DE ALTA COSTURA (DIRECTO Y PROTAGONISTA)
+           BOTÓN WHATSAPP DESTACADO
            ========================================================= */
-        .primary-booking-btn {
-            background: linear-gradient(135deg, #1C232D 0%, #0F141A 100%);
-            border: 1px solid rgba(197, 160, 89, 0.45);
-            border-radius: 10px;
+        .master-booking-btn {
+            background: linear-gradient(135deg, #18202A 0%, #0F141B 100%);
+            border: 1.4px solid var(--borde-tarjeta);
+            border-radius: 12px;
             padding: 18px 22px;
             text-decoration: none;
             color: #FFFFFF;
@@ -213,134 +273,134 @@
             grid-template-columns: auto 1fr auto;
             align-items: center;
             gap: 16px;
-            box-shadow: 0 14px 28px rgba(20, 24, 30, 0.18);
+            box-shadow: 0 14px 28px rgba(15, 20, 27, 0.25);
             position: relative;
             overflow: hidden;
-            transition: all 0.35s var(--transicion-sastre);
+            transition: all 0.35s var(--transicion);
         }
 
-        /* Detalle de costura perimetral en hilo oro */
-        .primary-booking-btn::after {
+        .master-booking-btn::after {
             content: '';
             position: absolute;
-            inset: 3px;
+            inset: 4px;
             border-radius: 8px;
-            border: 1px dashed rgba(223, 190, 130, 0.35);
+            border: 1px dashed rgba(223, 190, 130, 0.45);
             pointer-events: none;
         }
 
-        .wpp-emblem {
-            width: 44px;
-            height: 44px;
+        .wpp-badge-circle {
+            width: 46px;
+            height: 46px;
             border-radius: 50%;
-            background: linear-gradient(135deg, #25D366 0%, #158E42 100%);
+            background: linear-gradient(135deg, #25D366 0%, #15833E 100%);
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.45);
         }
 
-        .wpp-emblem svg {
-            width: 22px;
-            height: 22px;
+        .wpp-badge-circle svg {
+            width: 24px;
+            height: 24px;
             fill: #FFFFFF;
         }
 
-        .booking-info strong {
+        .booking-headline strong {
             display: block;
             font-family: 'Cinzel', serif;
-            font-size: 0.94rem;
+            font-size: 0.98rem;
             letter-spacing: 0.08em;
             text-transform: uppercase;
             color: #FFFFFF;
+            font-weight: 700;
         }
 
-        .booking-info span {
-            font-size: 0.73rem;
-            color: rgba(255, 255, 255, 0.78);
-            font-weight: 400;
+        .booking-headline span {
+            font-size: 0.78rem;
+            color: #E2E7EE;
+            font-weight: 500;
+            display: block;
+            margin-top: 2px;
         }
 
-        .booking-arrow {
-            width: 32px;
-            height: 32px;
+        .booking-arrow-mark {
+            width: 34px;
+            height: 34px;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.12);
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: transform 0.3s ease, background 0.3s ease;
+            transition: all 0.35s var(--transicion);
         }
 
-        .booking-arrow svg {
-            width: 14px;
-            height: 14px;
+        .booking-arrow-mark svg {
+            width: 15px;
+            height: 15px;
             stroke: var(--oro-champagne);
-            stroke-width: 2.2;
+            stroke-width: 2.4;
             fill: none;
             transition: transform 0.3s ease;
         }
 
-        .primary-booking-btn:hover {
+        .master-booking-btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 20px 40px rgba(20, 24, 30, 0.28);
+            box-shadow: 0 20px 42px rgba(15, 20, 27, 0.38);
             border-color: var(--oro-champagne);
         }
 
-        .primary-booking-btn:hover .booking-arrow {
-            background: var(--oro-satinado);
+        .master-booking-btn:hover .booking-arrow-mark {
+            background: var(--oro-satin);
             transform: translateX(4px);
         }
 
-        .primary-booking-btn:hover .booking-arrow svg {
-            stroke: #10141A;
+        .master-booking-btn:hover .booking-arrow-mark svg {
+            stroke: #0F141B;
         }
 
         /* =========================================================
-           DIRECTORIO DE SERVICIOS: TARJETAS DINÁMICAS Y ELEGANTES
+           DIRECTORIO DE SERVICIOS (TEXTOS AMPLIADOS Y LEGIBLES)
            ========================================================= */
-        .bespoke-directory {
+        .bespoke-collection {
             display: flex;
             flex-direction: column;
             gap: 15px;
             width: 100%;
         }
 
-        .section-separator {
+        .needle-divider {
             display: flex;
             align-items: center;
             gap: 12px;
-            margin: 4px 0;
+            margin: 2px 0;
         }
 
-        .separator-line {
+        .needle-line {
             flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--oro-satinado), transparent);
+            height: 1.2px;
+            background: linear-gradient(90deg, transparent, var(--oro-satin), transparent);
         }
 
-        .needle-mark {
-            width: 24px;
-            height: 24px;
+        .needle-icon {
+            color: var(--oro-satin);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--oro-satinado);
         }
 
-        .needle-mark svg {
-            width: 20px;
-            height: 20px;
+        .needle-icon svg {
+            width: 22px;
+            height: 22px;
             stroke: currentColor;
             fill: none;
-            stroke-width: 1.5;
+            stroke-width: 1.8;
         }
 
-        /* Tarjeta Principal Ancha */
-        .tailor-card {
-            background: var(--fondo-marfil);
-            border: 1px solid rgba(197, 160, 89, 0.32);
-            border-radius: 10px;
+        /* Tarjeta Principal */
+        .feature-card {
+            background: var(--bg-card);
+            border: 1.2px solid var(--borde-tarjeta);
+            border-radius: 12px;
             padding: 22px 24px;
             text-decoration: none;
             color: inherit;
@@ -348,316 +408,317 @@
             grid-template-columns: 1fr auto;
             align-items: center;
             position: relative;
-            box-shadow: var(--sombra-editorial);
-            transition: all 0.35s var(--transicion-sastre);
+            box-shadow: var(--sombra-elegante);
+            transition: all 0.35s var(--transicion);
             overflow: hidden;
         }
 
-        /* Detalle de costura de sastre vertical a la izquierda */
-        .tailor-card::before {
+        .feature-card::before {
             content: '';
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             width: 4px;
-            background: linear-gradient(180deg, var(--oro-satinado), var(--rojo-corbata));
-            opacity: 0.9;
+            background: linear-gradient(180deg, var(--oro-satin), var(--rojo-corbata));
+            opacity: 0.95;
         }
 
-        .card-tag {
-            font-size: 0.64rem;
+        .card-eyebrow {
+            font-size: 0.68rem;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--dorado-texto);
+            color: var(--oro-destacado);
             margin-bottom: 4px;
             display: block;
         }
 
-        .card-title {
+        .card-heading {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 1.62rem;
             font-weight: 700;
-            color: var(--negro-tinta);
-            line-height: 1.18;
-            letter-spacing: -0.01em;
+            color: var(--texto-principal);
+            line-height: 1.15;
             transition: color 0.3s ease;
         }
 
-        .card-desc {
-            font-size: 0.75rem;
-            font-weight: 400;
-            color: var(--gris-sedoso);
+        .card-caption {
+            font-size: 0.84rem;
+            font-weight: 500;
+            color: var(--texto-cuerpo);
             margin-top: 6px;
-            line-height: 1.45;
+            line-height: 1.5;
         }
 
-        .card-action-mark {
+        .action-ring {
             width: 42px;
             height: 42px;
             border-radius: 50%;
-            background: var(--travertino-suave);
-            border: 1px solid rgba(197, 160, 89, 0.35);
+            background: var(--bg-canvas-subtle);
+            border: 1.2px solid var(--borde-tarjeta);
             display: flex;
             align-items: center;
             justify-content: center;
             margin-left: 14px;
-            transition: all 0.35s var(--transicion-sastre);
+            transition: all 0.35s var(--transicion);
         }
 
-        .card-action-mark svg {
-            width: 15px;
-            height: 15px;
-            stroke: var(--negro-tinta);
-            stroke-width: 2;
+        .action-ring svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--texto-principal);
+            stroke-width: 2.2;
             fill: none;
-            transition: transform 0.35s var(--transicion-sastre), stroke 0.3s ease;
+            transition: transform 0.35s var(--transicion), stroke 0.3s ease;
         }
 
-        .tailor-card:hover {
+        .feature-card:hover {
             transform: translateY(-3px);
             box-shadow: var(--sombra-hover);
-            border-color: var(--oro-satinado);
+            border-color: var(--oro-satin);
         }
 
-        .tailor-card:hover .card-title {
-            color: var(--dorado-texto);
+        .feature-card:hover .card-heading {
+            color: var(--oro-destacado);
         }
 
-        .tailor-card:hover .card-action-mark {
-            background: var(--oro-satinado);
-            border-color: var(--oro-satinado);
-            transform: scale(1.05);
+        .feature-card:hover .action-ring {
+            background: var(--oro-satin);
+            border-color: var(--oro-satin);
+            transform: scale(1.06);
         }
 
-        .tailor-card:hover .card-action-mark svg {
+        .feature-card:hover .action-ring svg {
             stroke: #FFFFFF;
             transform: translateX(3px);
         }
 
-        /* Bloque Dúo (Colección de Alquiler & Ajustes de Taller) */
-        .duo-row {
+        /* Fila Dúo */
+        .duo-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 13px;
             width: 100%;
         }
 
-        .duo-card {
-            background: var(--fondo-marfil);
-            border: 1px solid rgba(197, 160, 89, 0.3);
-            border-radius: 10px;
+        .duo-box {
+            background: var(--bg-card);
+            border: 1.2px solid var(--borde-tarjeta);
+            border-radius: 12px;
             padding: 18px 16px;
             text-decoration: none;
             color: inherit;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 168px;
-            box-shadow: var(--sombra-editorial);
-            transition: all 0.35s var(--transicion-sastre);
+            min-height: 172px;
+            box-shadow: var(--sombra-elegante);
+            transition: all 0.35s var(--transicion);
             position: relative;
         }
 
-        .duo-card::before {
+        .duo-box::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 15%;
-            right: 15%;
+            left: 20%;
+            right: 20%;
             height: 2px;
             background: linear-gradient(90deg, transparent, var(--oro-champagne), transparent);
         }
 
-        .duo-card .card-title {
-            font-size: 1.32rem;
+        .duo-box .card-heading {
+            font-size: 1.38rem;
             margin-top: 3px;
         }
 
-        .duo-card .card-desc {
-            font-size: 0.70rem;
+        .duo-box .card-caption {
+            font-size: 0.78rem;
+            font-weight: 500;
             margin-top: 5px;
+            line-height: 1.45;
         }
 
-        .duo-footer-bar {
+        .duo-bottom {
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: 14px;
             padding-top: 10px;
-            border-top: 1px solid rgba(197, 160, 89, 0.2);
+            border-top: 1px solid var(--borde-tarjeta);
         }
 
-        .duo-label {
-            font-size: 0.62rem;
+        .duo-label-action {
+            font-size: 0.68rem;
             font-weight: 700;
-            letter-spacing: 0.18em;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--dorado-texto);
+            color: var(--oro-destacado);
         }
 
-        .duo-arrow svg {
-            width: 13px;
-            height: 13px;
-            stroke: var(--negro-tinta);
-            stroke-width: 2;
+        .duo-arrow-mark svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--texto-principal);
+            stroke-width: 2.2;
             fill: none;
             transition: transform 0.3s ease;
         }
 
-        .duo-card:hover {
+        .duo-box:hover {
             transform: translateY(-3px);
             box-shadow: var(--sombra-hover);
-            border-color: var(--oro-satinado);
+            border-color: var(--oro-satin);
         }
 
-        .duo-card:hover .card-title {
-            color: var(--dorado-texto);
+        .duo-box:hover .card-heading {
+            color: var(--oro-destacado);
         }
 
-        .duo-card:hover .duo-arrow svg {
-            transform: translateX(3px);
-            stroke: var(--dorado-texto);
+        .duo-box:hover .duo-arrow-mark svg {
+            transform: translateX(4px);
+            stroke: var(--oro-destacado);
         }
 
         /* =========================================================
-           SELECTOR INTERACTIVO: ASISTENTE DE OCASIÓN (DINÁMICO)
+           COTIZADOR INTERACTIVO (CLARO Y BIEN VISIBLE)
            ========================================================= */
-        .fitting-concierge {
-            background: linear-gradient(145deg, #FFFFFF 0%, #F9F6F0 100%);
-            border: 1.2px solid rgba(197, 160, 89, 0.45);
-            border-radius: 12px;
+        .assistant-card {
+            background: var(--bg-card-inner);
+            border: 1.4px solid var(--borde-tarjeta);
+            border-radius: 14px;
             padding: 22px 20px;
             text-align: center;
-            box-shadow: var(--sombra-editorial);
+            box-shadow: var(--sombra-elegante);
             position: relative;
         }
 
-        .fitting-concierge::after {
+        .assistant-card::after {
             content: '';
             position: absolute;
             inset: 4px;
-            border-radius: 9px;
-            border: 1px dashed rgba(197, 160, 89, 0.28);
+            border-radius: 10px;
+            border: 1.2px dashed var(--borde-stitch);
             pointer-events: none;
         }
 
-        .concierge-headline {
+        .assistant-title {
             font-family: 'Cinzel', serif;
-            font-size: 1.05rem;
+            font-size: 1.10rem;
             font-weight: 700;
-            color: var(--negro-tinta);
+            color: var(--texto-principal);
             letter-spacing: 0.08em;
             text-transform: uppercase;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .concierge-sub {
-            font-size: 0.74rem;
-            color: var(--gris-sedoso);
-            margin-bottom: 14px;
+        .assistant-desc {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--texto-cuerpo);
+            margin-bottom: 15px;
         }
 
-        .events-chips {
+        .chips-flow {
             display: flex;
             flex-wrap: wrap;
-            gap: 7px;
+            gap: 8px;
             justify-content: center;
             margin-bottom: 16px;
             position: relative;
             z-index: 2;
         }
 
-        .event-chip {
-            background: #FFFFFF;
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            color: var(--gris-carbón);
-            padding: 7px 13px;
+        .chip-btn {
+            background: var(--bg-card);
+            border: 1.2px solid var(--borde-tarjeta);
+            color: var(--texto-principal);
+            padding: 8px 14px;
             border-radius: 20px;
-            font-size: 0.70rem;
-            font-weight: 500;
+            font-size: 0.76rem;
+            font-weight: 600;
             cursor: pointer;
             transition: all 0.25s ease;
         }
 
-        .event-chip.selected,
-        .event-chip:hover {
-            background: var(--negro-tinta);
-            color: #FFFFFF;
-            border-color: var(--negro-tinta);
+        .chip-btn.active,
+        .chip-btn:hover {
+            background: var(--texto-principal);
+            color: var(--bg-canvas);
+            border-color: var(--texto-principal);
             transform: translateY(-1px);
         }
 
-        .concierge-submit-btn {
+        .assistant-cta {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
             width: 100%;
-            padding: 13px;
-            border-radius: 6px;
-            background: linear-gradient(135deg, #DFBE82 0%, #C5A059 50%, #A17935 100%);
-            color: #14171C;
-            font-size: 0.75rem;
+            padding: 14px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #DFBE82 0%, #B88E41 50%, #906B25 100%);
+            color: #11141A;
+            font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.14em;
+            letter-spacing: 0.12em;
             text-transform: uppercase;
             text-decoration: none;
-            box-shadow: 0 8px 18px rgba(197, 160, 89, 0.35);
+            box-shadow: 0 8px 18px rgba(184, 142, 65, 0.35);
             transition: all 0.3s ease;
             position: relative;
             z-index: 2;
         }
 
-        .concierge-submit-btn:hover {
+        .assistant-cta:hover {
             filter: brightness(1.08);
             transform: translateY(-2px);
         }
 
-        .concierge-submit-btn svg {
-            width: 15px;
-            height: 15px;
-            stroke: #14171C;
+        .assistant-cta svg {
+            width: 17px;
+            height: 17px;
+            stroke: #11141A;
             fill: none;
-            stroke-width: 2.2;
+            stroke-width: 2.4;
         }
 
         /* =========================================================
-           SUCURSALES EN ENCARNACIÓN (2 LOCALES OFICIALES)
+           SUCURSALES EN ENCARNACIÓN
            ========================================================= */
-        .locations-container {
+        .branches-flow {
             display: flex;
             flex-direction: column;
             gap: 12px;
         }
 
-        .atelier-branch {
-            background: var(--fondo-marfil);
-            border: 1px solid rgba(197, 160, 89, 0.28);
-            border-radius: 10px;
-            padding: 16px 18px;
-            box-shadow: var(--sombra-editorial);
+        .branch-item {
+            background: var(--bg-card);
+            border: 1.2px solid var(--borde-tarjeta);
+            border-radius: 12px;
+            padding: 18px 20px;
+            box-shadow: var(--sombra-elegante);
             transition: all 0.3s ease;
         }
 
-        .atelier-branch:hover {
-            border-color: var(--oro-satinado);
+        .branch-item:hover {
+            border-color: var(--oro-satin);
         }
 
-        .branch-badge {
-            font-size: 0.60rem;
+        .branch-type {
+            font-size: 0.66rem;
             font-weight: 700;
             letter-spacing: 0.22em;
             text-transform: uppercase;
-            color: var(--dorado-texto);
+            color: var(--oro-destacado);
             display: flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .branch-badge::before {
+        .branch-type::before {
             content: '';
             width: 6px;
             height: 6px;
@@ -665,72 +726,77 @@
             border-radius: 50%;
         }
 
-        .branch-title {
+        .branch-name {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.25rem;
+            font-size: 1.34rem;
             font-weight: 700;
-            color: var(--negro-tinta);
+            color: var(--texto-principal);
         }
 
-        .branch-desc {
-            font-size: 0.73rem;
-            color: var(--gris-sedoso);
-            margin: 4px 0 12px;
-            line-height: 1.4;
+        .branch-address {
+            font-size: 0.82rem;
+            font-weight: 500;
+            color: var(--texto-cuerpo);
+            margin: 5px 0 14px;
+            line-height: 1.5;
         }
 
-        .branch-action-grid {
+        .branch-actions {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 8px;
+            gap: 10px;
         }
 
-        .branch-link {
+        .branch-link-btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 6px;
-            padding: 9px;
+            padding: 10px;
             border-radius: 6px;
-            font-size: 0.67rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             text-decoration: none;
             transition: all 0.25s ease;
         }
 
-        .branch-map-link {
-            background: var(--travertino-suave);
-            border: 1px solid rgba(197, 160, 89, 0.35);
-            color: var(--negro-tinta);
+        .map-style {
+            background: var(--bg-canvas-subtle);
+            border: 1.2px solid var(--borde-tarjeta);
+            color: var(--texto-principal);
         }
 
-        .branch-map-link:hover {
-            background: #E8E2D8;
+        .map-style:hover {
+            filter: brightness(0.95);
         }
 
-        .branch-wpp-link {
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.5);
-            color: #0F6E31;
+        .wpp-style {
+            background: rgba(37, 211, 102, 0.14);
+            border: 1.2px solid rgba(37, 211, 102, 0.55);
+            color: #0E7738;
         }
 
-        .branch-wpp-link:hover {
+        [data-theme="dark"] .wpp-style {
+            color: #25D366;
+        }
+
+        .wpp-style:hover {
             background: #25D366;
             color: #FFFFFF;
         }
 
-        .branch-link svg {
-            width: 13px;
-            height: 13px;
+        .branch-link-btn svg {
+            width: 14px;
+            height: 14px;
             stroke: currentColor;
             fill: none;
-            stroke-width: 2;
+            stroke-width: 2.2;
         }
 
         /* =========================================================
-           PIE DE PÁGINA CON INSTAGRAM OFICIAL
+           PIE INSTITUCIONAL
            ========================================================= */
         .atelier-footer {
             display: flex;
@@ -741,55 +807,56 @@
             padding-top: 10px;
         }
 
-        .instagram-pill {
+        .instagram-badge {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 22px;
+            padding: 11px 24px;
             border-radius: 30px;
-            background: #FFFFFF;
-            border: 1.2px solid rgba(197, 160, 89, 0.45);
-            color: var(--negro-tinta);
+            background: var(--bg-card);
+            border: 1.4px solid var(--borde-tarjeta);
+            color: var(--texto-principal);
             text-decoration: none;
-            font-size: 0.68rem;
+            font-size: 0.74rem;
             font-weight: 700;
             letter-spacing: 0.18em;
             text-transform: uppercase;
-            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
         }
 
-        .instagram-pill svg {
-            width: 15px;
-            height: 15px;
-            stroke: var(--dorado-texto);
-            stroke-width: 1.8;
+        .instagram-badge svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--oro-satin);
+            stroke-width: 2;
             fill: none;
             transition: transform 0.3s ease;
         }
 
-        .instagram-pill:hover {
-            background: var(--negro-tinta);
-            color: #FFFFFF;
-            border-color: var(--negro-tinta);
+        .instagram-badge:hover {
+            background: var(--texto-principal);
+            color: var(--bg-canvas);
+            border-color: var(--texto-principal);
             transform: translateY(-2px);
         }
 
-        .instagram-pill:hover svg {
+        .instagram-badge:hover svg {
             stroke: var(--oro-champagne);
             transform: scale(1.1);
         }
 
-        .copyright-seal {
-            font-size: 0.63rem;
-            color: var(--gris-sedoso);
-            letter-spacing: 0.18em;
+        .legal-stamp {
+            font-size: 0.68rem;
+            font-weight: 500;
+            color: var(--texto-suave);
+            letter-spacing: 0.16em;
             text-transform: uppercase;
             line-height: 1.6;
         }
 
-        /* Botón flotante rápido para celular */
-        .floating-chat-bubble {
+        /* Botón Flotante */
+        .bubble-whatsapp-fixed {
             position: fixed;
             bottom: 22px;
             right: 22px;
@@ -807,167 +874,152 @@
             transition: transform 0.3s ease;
         }
 
-        .floating-chat-bubble svg {
+        .bubble-whatsapp-fixed svg {
             width: 28px;
             height: 28px;
             fill: #FFFFFF;
         }
 
-        .floating-chat-bubble:hover {
+        .bubble-whatsapp-fixed:hover {
             transform: scale(1.1);
         }
 
         @media (max-width: 480px) {
-            .atelier-stage {
+            .stage-container {
                 gap: 22px;
             }
-            .tailor-card {
+            .feature-card {
                 padding: 18px 20px;
             }
-            .card-title {
-                font-size: 1.38rem;
+            .card-heading {
+                font-size: 1.45rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- FONDO DE LINO Y PUNTADA FINA DE SASTRERÍA -->
-    <div class="tailor-scenic-bg" aria-hidden="true"></div>
+    <!-- FONDO DE SASTRERÍA CON PATRÓN DIAGONAL REFORZADO -->
+    <div class="tailor-pattern-bg" aria-hidden="true"></div>
 
     <!-- BOTÓN FLOTANTE DIRECTO WHATSAPP -->
     <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20consultar%20por%20un%20traje" 
-       class="floating-chat-bubble" 
+       class="bubble-whatsapp-fixed" 
        target="_blank" 
        rel="noopener noreferrer" 
-       aria-label="Abrir WhatsApp">
+       aria-label="Abrir WhatsApp Oficial">
         <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.711 2.598 2.664-.698c.969.541 1.761.817 2.796.817 3.18 0 5.766-2.587 5.767-5.768.001-3.18-2.585-5.766-5.767-5.766zm9.969 5.766c0 5.505-4.495 10-10 10-.001 0-.002 0-.003 0-1.748 0-3.374-.461-4.793-1.272l-5.204 1.364 1.389-5.077c-.911-1.464-1.392-3.167-1.392-4.915 0-5.505 4.495-10 10-10 5.506 0 10.003 4.495 10.003 10z"/></svg>
     </a>
 
-    <!-- NÚCLEO EDITORIAL -->
-    <main class="atelier-stage">
+    <!-- BARRA SUPERIOR: SELECTOR DE TEMA -->
+    <div class="top-toolbar">
+        <button type="button" class="theme-toggle-btn" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Cambiar modo claro y oscuro">
+            <svg id="themeIcon" viewBox="0 0 24 24">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span id="themeLabel">Modo Noche</span>
+        </button>
+    </div>
 
-        <!-- CABECERA: LOGO ORIGINAL OFICIAL -->
-        <header class="brand-showcase">
-            <div class="logo-frame">
-                <!-- 
-                     IMPORTANTE: Guarda la imagen del logo adjunta con el nombre 'logo.png' 
-                     en la misma carpeta del archivo HTML. 
-                -->
-                <img src="logo.png" 
-                     alt="Sastrería Silva · Logotipo Oficial" 
-                     class="official-logo-img" 
-                     onerror="this.style.display='none'; document.getElementById('vector-logo-fallback').style.display='block';">
+    <!-- ESCENARIO EDITORIAL -->
+    <main class="stage-container">
 
-                <!-- Vector idéntico de respaldo automático en caso de abrir sin la imagen local -->
-                <svg id="vector-logo-fallback" class="svg-logo-fallback" viewBox="0 0 320 280">
-                    <!-- Silueta Escudo del Saco -->
-                    <path d="M70,50 L160,20 L250,50 L270,140 L160,200 L50,140 Z" fill="#14171C" stroke="#252A34" stroke-width="2"/>
-                    <!-- Cuello blanco de camisa -->
-                    <polygon points="160,55 125,25 195,25" fill="#FFFFFF"/>
-                    <!-- Corbata Roja Satinada -->
-                    <polygon points="160,58 172,75 168,170 160,185 152,170 148,75" fill="#9E1B26"/>
-                    <!-- Solapas con bisel -->
-                    <path d="M75,54 L125,120 L155,178 L120,135 Z" fill="#202630"/>
-                    <path d="M245,54 L195,120 L165,178 L200,135 Z" fill="#202630"/>
-                    <!-- Texto Dorado SASTRERÍA -->
-                    <text x="160" y="222" font-family="'Cinzel', serif" font-size="28" font-weight="800" fill="#C5A059" text-anchor="middle" letter-spacing="2">SASTRERÍA</text>
-                    <!-- Aguja Dorada con Ojal -->
-                    <line x1="45" y1="234" x2="265" y2="234" stroke="#C5A059" stroke-width="3" stroke-linecap="round"/>
-                    <ellipse cx="265" cy="234" rx="8" ry="3.5" fill="none" stroke="#C5A059" stroke-width="2"/>
-                    <!-- Texto Negro SILVA -->
-                    <text x="160" y="272" font-family="'Cinzel', serif" font-size="34" font-weight="900" fill="#14171C" text-anchor="middle" letter-spacing="4">SILVA</text>
-                </svg>
+        <!-- CABECERA: LOGO ORIGINAL DIRECTO DE TU GITHUB -->
+        <header class="brand-header">
+            <div class="logo-wrapper">
+                <img src="Emblema%20elegante%20de%20Sastrer%C3%ADa%20Silva.png" 
+                     alt="Sastrería Silva · Confección y Alquiler a Medida" 
+                     class="brand-logo-img">
             </div>
 
-            <div class="brand-credentials">
-                <span class="master-tailor-badge">Confección & Alquiler a Medida</span>
-                <p class="brand-motto">"El corte y la distinción exacta para sus momentos memorables"</p>
-                <div class="brand-location-pin">
-                    <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
-                    Encarnación · Paraguay
-                </div>
+            <div class="atelier-ribbon">Confección & Alquiler a Medida</div>
+            
+            <p class="editorial-quote">"El corte y la distinción exacta para sus momentos memorables"</p>
+            
+            <div class="geo-location">
+                <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+                Encarnación · Paraguay
             </div>
         </header>
 
-        <!-- ACCESO RÁPIDO DE ALTO IMPACTO (WHATSAPP DE ATENCIÓN DIRECTA) -->
+        <!-- ACCESO RÁPIDO WHATSAPP DE ALTA PRIORIDAD -->
         <a href="https://wa.me/595985123172?text=Hola%20don%20Silva,%20le%20escribo%20para%20consultar%20sobre%20un%20traje" 
-           class="primary-booking-btn" 
+           class="master-booking-btn" 
            target="_blank" 
            rel="noopener noreferrer">
-            <div class="wpp-emblem">
+            <div class="wpp-badge-circle">
                 <svg viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
             </div>
-            <div class="booking-info">
+            <div class="booking-headline">
                 <strong>Atención Directa en WhatsApp</strong>
                 <span>Presupuestos y coordinación de pruebas</span>
             </div>
-            <div class="booking-arrow">
+            <div class="booking-arrow-mark">
                 <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </div>
         </a>
 
-        <!-- SEPARADOR CON AGUJA Y COSTURA -->
-        <div class="section-separator" aria-hidden="true">
-            <div class="separator-line"></div>
-            <div class="needle-mark">
+        <!-- SEPARADOR CON AGUJA DE SASTRE -->
+        <div class="needle-divider" aria-hidden="true">
+            <div class="needle-line"></div>
+            <div class="needle-icon">
                 <svg viewBox="0 0 24 24"><line x1="2" y1="12" x2="22" y2="12"/><circle cx="19" cy="12" r="2"/></svg>
             </div>
-            <div class="separator-line"></div>
+            <div class="needle-line"></div>
         </div>
 
-        <!-- DIRECTORIO DE ALTA SASTRERÍA -->
-        <section class="bespoke-directory" aria-label="Servicios Principales">
+        <!-- DIRECTORIO DE COLECCIONES Y TALLER -->
+        <section class="bespoke-collection" aria-label="Nuestros Servicios">
 
             <!-- TARJETA 01: CONFECCIÓN A MEDIDA -->
             <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20presupuesto%20para%20un%20traje%20confeccionado%20a%20medida" 
-               class="tailor-card" 
+               class="feature-card" 
                target="_blank" 
                rel="noopener noreferrer">
-                <div class="card-text">
-                    <span class="card-tag">Piezas de Autor</span>
-                    <h2 class="card-title">Confección Sobre Medida</h2>
-                    <p class="card-desc">Corte anatómico, paños de primera calidad y ajuste milimétrico para bodas y galas.</p>
+                <div>
+                    <span class="card-eyebrow">Piezas de Autor</span>
+                    <h2 class="card-heading">Confección Sobre Medida</h2>
+                    <p class="card-caption">Corte anatómico, selección de paños finos y entalle artesanal para bodas y recepciones.</p>
                 </div>
-                <div class="card-action-mark" aria-hidden="true">
+                <div class="action-ring" aria-hidden="true">
                     <svg viewBox="0 0 24 24"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
                 </div>
             </a>
 
-            <!-- BLOQUE DÚO: ALQUILER & AJUSTES EXPRÉS -->
-            <div class="duo-row">
+            <!-- BLOQUE DÚO -->
+            <div class="duo-grid">
                 
-                <!-- DÚO 1: ALQUILER DE SMOKINGS -->
-                <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20consultar%20por%20el%20catalogo%20de%20alquiler%20de%20trajes" 
-                   class="duo-card" 
+                <!-- DÚO 1: ALQUILER DE TRAJES -->
+                <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20consultar%20por%20alquiler%20de%20trajes" 
+                   class="duo-box" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     <div>
-                        <span class="card-tag">Colección</span>
-                        <h2 class="card-title">Alquiler de Trajes</h2>
-                        <p class="card-desc">Smokings y ambos completos con ajuste a su silueta.</p>
+                        <span class="card-eyebrow">Catálogo</span>
+                        <h2 class="card-heading">Alquiler de Trajes</h2>
+                        <p class="card-caption">Smokings y sacos de gala listos con ajuste express al cuerpo.</p>
                     </div>
-                    <div class="duo-footer-bar">
-                        <span class="duo-label">Explorar</span>
-                        <div class="duo-arrow" aria-hidden="true">
+                    <div class="duo-bottom">
+                        <span class="duo-label-action">Ver Opciones</span>
+                        <div class="duo-arrow-mark" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
                     </div>
                 </a>
 
                 <!-- DÚO 2: TALLER DE AJUSTES -->
-                <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20necesito%20realizar%20un%20ajuste%20en%20una%20prenda" 
-                   class="duo-card" 
+                <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20necesito%20un%20servicio%20de%20ajustes%20de%20sastreria" 
+                   class="duo-box" 
                    target="_blank" 
                    rel="noopener noreferrer">
                     <div>
-                        <span class="card-tag">Taller Artesanal</span>
-                        <h2 class="card-title">Ajustes & Bastas</h2>
-                        <p class="card-desc">Entallado de hombros, cintura y modernización.</p>
+                        <span class="card-eyebrow">Taller Propio</span>
+                        <h2 class="card-heading">Ajustes & Bastas</h2>
+                        <p class="card-caption">Entallado de hombros, cintura y modernización de prendas.</p>
                     </div>
-                    <div class="duo-footer-bar">
-                        <span class="duo-label">Servicios</span>
-                        <div class="duo-arrow" aria-hidden="true">
+                    <div class="duo-bottom">
+                        <span class="duo-label-action">Arreglos</span>
+                        <div class="duo-arrow-mark" aria-hidden="true">
                             <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
                         </div>
                     </div>
@@ -977,64 +1029,64 @@
 
         </section>
 
-        <!-- ASISTENTE INTERACTIVO DE FITTING RÁPIDO (VALOR PERCIBIDO ELEVADO) -->
-        <section class="fitting-concierge">
-            <h3 class="concierge-headline">¿Para qué ocasión busca su traje?</h3>
-            <p class="concierge-sub">Toque su evento para solicitar asesoramiento directo:</p>
+        <!-- COTIZADOR INTERACTIVO SEGÚN EVENTO -->
+        <section class="assistant-card">
+            <h3 class="assistant-title">¿Para qué ocasión busca su traje?</h3>
+            <p class="assistant-desc">Toque su evento para redactar su consulta de inmediato:</p>
 
-            <div class="events-chips">
-                <button type="button" class="event-chip selected" onclick="definirOcasion(this, 'Boda / Matrimonio')">Boda</button>
-                <button type="button" class="event-chip" onclick="definirOcasion(this, 'Graduación / Colación')">Graduación</button>
-                <button type="button" class="event-chip" onclick="definirOcasion(this, 'Fiesta de 15 Años')">Fiesta de 15</button>
-                <button type="button" class="event-chip" onclick="definirOcasion(this, 'Cena de Gala / Recepción')">Cena de Gala</button>
-                <button type="button" class="event-chip" onclick="definirOcasion(this, 'Ajuste de Prenda Propia')">Ajuste de Traje</button>
+            <div class="chips-flow">
+                <button type="button" class="chip-btn active" onclick="seleccionarOcasion(this, 'Boda / Matrimonio')">Boda</button>
+                <button type="button" class="chip-btn" onclick="seleccionarOcasion(this, 'Graduación / Colación')">Graduación</button>
+                <button type="button" class="chip-btn" onclick="seleccionarOcasion(this, 'Fiesta de 15 Años')">Fiesta de 15</button>
+                <button type="button" class="chip-btn" onclick="seleccionarOcasion(this, 'Cena de Gala')">Cena de Gala</button>
+                <button type="button" class="chip-btn" onclick="seleccionarOcasion(this, 'Ajuste de Prenda Propia')">Ajuste de Traje</button>
             </div>
 
-            <a id="btnAsistenteDinamico" 
+            <a id="btnAsistenteWpp" 
                href="https://wa.me/595985123172?text=Hola%20Sastrer%C3%ADa%20Silva,%20busco%20asesoramiento%20para%20un%20traje%20de:%20Boda%20/%20Matrimonio" 
-               class="concierge-submit-btn" 
+               class="assistant-cta" 
                target="_blank" 
                rel="noopener noreferrer">
                 <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-                <span id="textoBotonDinamico">Consultar por Traje de Boda</span>
+                <span id="textoAsistenteWpp">Consultar por Traje de Boda</span>
             </a>
         </section>
 
         <!-- SUCURSALES EN ENCARNACIÓN -->
-        <section class="locations-container" aria-label="Sucursales">
+        <section class="branches-flow" aria-label="Sucursales en Encarnación">
             
-            <!-- SUCURSAL MCAL ESTIGARRIBIA -->
-            <div class="atelier-branch">
-                <div class="branch-badge">Casa Central · Taller Principal</div>
-                <div class="branch-title">Mariscal Estigarribia</div>
-                <p class="branch-desc">Mcal. Estigarribia entre 25 de Mayo y Constitución Nacional, Encarnación</p>
-                <div class="branch-action-grid">
+            <!-- SUCURSAL 1 -->
+            <div class="branch-item">
+                <div class="branch-type">Casa Central · Taller</div>
+                <div class="branch-name">Mariscal Estigarribia</div>
+                <p class="branch-address">Mcal. Estigarribia e/ 25 de Mayo y Constitución Nacional · Encarnación</p>
+                <div class="branch-actions">
                     <a href="https://www.google.com/maps/search/Mariscal+Estigarribia+y+25+de+Mayo+Encarnacion+Paraguay" 
-                       class="branch-link branch-map-link" target="_blank" rel="noopener noreferrer">
+                       class="branch-link-btn map-style" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
                         Ubicación
                     </a>
                     <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20visitar%20la%20sucursal%20de%20Mcal%20Estigarribia" 
-                       class="branch-link branch-wpp-link" target="_blank" rel="noopener noreferrer">
+                       class="branch-link-btn wpp-style" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         Agendar Cita
                     </a>
                 </div>
             </div>
 
-            <!-- SUCURSAL SAN PEDRO -->
-            <div class="atelier-branch">
-                <div class="branch-badge">Atención & Pruebas</div>
-                <div class="branch-title">Sucursal San Pedro</div>
-                <p class="branch-desc">Barrio San Pedro – Etapa 4, Encarnación</p>
-                <div class="branch-action-grid">
+            <!-- SUCURSAL 2 -->
+            <div class="branch-item">
+                <div class="branch-type">Atención & Pruebas</div>
+                <div class="branch-name">Sucursal San Pedro</div>
+                <p class="branch-address">Barrio San Pedro – Etapa 4 · Encarnación</p>
+                <div class="branch-actions">
                     <a href="https://www.google.com/maps/search/San+Pedro+Etapa+4+Encarnacion+Paraguay" 
-                       class="branch-link branch-map-link" target="_blank" rel="noopener noreferrer">
+                       class="branch-link-btn map-style" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"/><line x1="8" y1="2" x2="8" y2="18"/><line x1="16" y1="6" x2="16" y2="22"/></svg>
                         Ubicación
                     </a>
                     <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20visitar%20la%20sucursal%20de%20San%20Pedro%20Etapa%204" 
-                       class="branch-link branch-wpp-link" target="_blank" rel="noopener noreferrer">
+                       class="branch-link-btn wpp-style" target="_blank" rel="noopener noreferrer">
                         <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
                         Agendar Cita
                     </a>
@@ -1046,10 +1098,10 @@
         <!-- PIE INSTITUCIONAL -->
         <footer class="atelier-footer">
             <a href="https://www.instagram.com/sastreriasilva/" 
-               class="instagram-pill" 
+               class="instagram-badge" 
                target="_blank" 
                rel="noopener noreferrer" 
-               aria-label="Instagram Oficial de Sastrería Silva">
+               aria-label="Instagram Oficial Sastrería Silva">
                 <svg viewBox="0 0 24 24">
                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                     <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -1058,7 +1110,7 @@
                 <span>@sastreriasilva</span>
             </a>
 
-            <div class="copyright-seal">
+            <div class="legal-stamp">
                 Sastrería Silva · Encarnación, Paraguay<br>
                 Maestría en Confección y Alquiler de Trajes a Medida
             </div>
@@ -1066,19 +1118,48 @@
 
     </main>
 
-    <!-- SCRIPT LIVIANO: ASISTENTE DE WHATSAPP -->
+    <!-- SCRIPTS: CONTROL DE TEMA Y ASISTENTE -->
     <script>
-        function definirOcasion(elemento, evento) {
-            document.querySelectorAll('.event-chip').forEach(btn => btn.classList.remove('selected'));
-            elemento.classList.add('selected');
+        function seleccionarOcasion(elemento, evento) {
+            document.querySelectorAll('.chip-btn').forEach(btn => btn.classList.remove('active'));
+            elemento.classList.add('active');
 
-            const btnWpp = document.getElementById('btnAsistenteDinamico');
-            const textoBtn = document.getElementById('textoBotonDinamico');
+            const btnWpp = document.getElementById('btnAsistenteWpp');
+            const textoBtn = document.getElementById('textoAsistenteWpp');
             
             const mensaje = encodeURIComponent(`Hola Sastrería Silva, busco asesoramiento y presupuesto para un traje de: ${evento}.`);
             btnWpp.href = `https://wa.me/595985123172?text=${mensaje}`;
             textoBtn.textContent = `Consultar por ${evento}`;
         }
+
+        function toggleTheme() {
+            const html = document.documentElement;
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme-silva', newTheme);
+            actualizarBotonTema(newTheme);
+        }
+
+        function actualizarBotonTema(theme) {
+            const label = document.getElementById('themeLabel');
+            const icon = document.getElementById('themeIcon');
+            
+            if (theme === 'dark') {
+                label.textContent = 'Modo Lino';
+                icon.innerHTML = '<circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>';
+            } else {
+                label.textContent = 'Modo Noche';
+                icon.innerHTML = '<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>';
+            }
+        }
+
+        (function() {
+            const savedTheme = localStorage.getItem('theme-silva') || 'light';
+            document.documentElement.setAttribute('data-theme', savedTheme);
+            actualizarBotonTema(savedTheme);
+        })();
     </script>
 
 </body>
