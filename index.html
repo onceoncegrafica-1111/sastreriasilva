@@ -97,7 +97,7 @@
         }
 
         /* =========================================================
-           FONDO CON TEXTURA DIAGONAL VISIBLE Y BIEN DEFINIDA
+           FONDO CON TEXTURA DIAGONAL VISIBLE
            ========================================================= */
         .tailor-pattern-bg {
             position: fixed;
@@ -107,7 +107,6 @@
             z-index: -1;
             pointer-events: none;
             background-color: var(--bg-canvas);
-            /* Patrón de puntada diagonal con opacidad optimizada */
             background-image: 
                 radial-gradient(ellipse 85% 55% at 50% 0%, var(--resplandor-solar) 0%, transparent 70%),
                 radial-gradient(circle at 85% 80%, rgba(158, 27, 38, 0.07) 0%, transparent 50%),
@@ -174,7 +173,7 @@
         }
 
         /* =========================================================
-           ENCABEZADO & LOGO
+           ENCABEZADO & LOGO (CON VISIBILIDAD OPTIMIZADA EN MODO NOCHE)
            ========================================================= */
         .brand-header {
             display: flex;
@@ -206,6 +205,33 @@
             max-height: 275px;
             object-fit: contain;
             display: block;
+            position: relative;
+            z-index: 2;
+            transition: filter 0.4s ease;
+        }
+
+        /* 
+           MEJORA CLAVE PARA MODO NOCHE:
+           Resalta perfectamente el texto negro "SILVA" con retroiluminación sutil y borde nítido
+        */
+        [data-theme="dark"] .logo-wrapper::after {
+            content: '';
+            position: absolute;
+            bottom: 4%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 78%;
+            height: 60px;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.16) 0%, rgba(223, 190, 130, 0.10) 50%, transparent 80%);
+            filter: blur(10px);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        [data-theme="dark"] .brand-logo-img {
+            filter: drop-shadow(0 0 1.2px rgba(255, 255, 255, 0.85)) 
+                    drop-shadow(0 0 12px rgba(223, 190, 130, 0.45)) 
+                    drop-shadow(0 8px 18px rgba(0, 0, 0, 0.8));
         }
 
         .atelier-ribbon {
@@ -359,7 +385,7 @@
         }
 
         /* =========================================================
-           DIRECTORIO DE SERVICIOS (TEXTOS AMPLIADOS Y LEGIBLES)
+           DIRECTORIO DE SERVICIOS
            ========================================================= */
         .bespoke-collection {
             display: flex;
@@ -582,7 +608,7 @@
         }
 
         /* =========================================================
-           COTIZADOR INTERACTIVO (CLARO Y BIEN VISIBLE)
+           COTIZADOR INTERACTIVO
            ========================================================= */
         .assistant-card {
             background: var(--bg-card-inner);
@@ -899,7 +925,7 @@
 </head>
 <body>
 
-    <!-- FONDO DE SASTRERÍA CON PATRÓN DIAGONAL REFORZADO -->
+    <!-- FONDO DE SASTRERÍA -->
     <div class="tailor-pattern-bg" aria-hidden="true"></div>
 
     <!-- BOTÓN FLOTANTE DIRECTO WHATSAPP -->
@@ -924,7 +950,7 @@
     <!-- ESCENARIO EDITORIAL -->
     <main class="stage-container">
 
-        <!-- CABECERA: LOGO ORIGINAL DIRECTO DE TU GITHUB -->
+        <!-- CABECERA: LOGO CON VISIBILIDAD OPTIMIZADA EN AMBOS MODOS -->
         <header class="brand-header">
             <div class="logo-wrapper">
                 <img src="Emblema%20elegante%20de%20Sastrer%C3%ADa%20Silva.png" 
@@ -942,7 +968,7 @@
             </div>
         </header>
 
-        <!-- ACCESO RÁPIDO WHATSAPP DE ALTA PRIORIDAD -->
+        <!-- ACCESO RÁPIDO WHATSAPP -->
         <a href="https://wa.me/595985123172?text=Hola%20don%20Silva,%20le%20escribo%20para%20consultar%20sobre%20un%20traje" 
            class="master-booking-btn" 
            target="_blank" 
@@ -959,7 +985,7 @@
             </div>
         </a>
 
-        <!-- SEPARADOR CON AGUJA DE SASTRE -->
+        <!-- SEPARADOR CON AGUJA -->
         <div class="needle-divider" aria-hidden="true">
             <div class="needle-line"></div>
             <div class="needle-icon">
@@ -968,10 +994,10 @@
             <div class="needle-line"></div>
         </div>
 
-        <!-- DIRECTORIO DE COLECCIONES Y TALLER -->
+        <!-- DIRECTORIO DE SERVICIOS -->
         <section class="bespoke-collection" aria-label="Nuestros Servicios">
 
-            <!-- TARJETA 01: CONFECCIÓN A MEDIDA -->
+            <!-- TARJETA 01 -->
             <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20presupuesto%20para%20un%20traje%20confeccionado%20a%20medida" 
                class="feature-card" 
                target="_blank" 
@@ -989,7 +1015,7 @@
             <!-- BLOQUE DÚO -->
             <div class="duo-grid">
                 
-                <!-- DÚO 1: ALQUILER DE TRAJES -->
+                <!-- DÚO 1 -->
                 <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20deseo%20consultar%20por%20alquiler%20de%20trajes" 
                    class="duo-box" 
                    target="_blank" 
@@ -1007,7 +1033,7 @@
                     </div>
                 </a>
 
-                <!-- DÚO 2: TALLER DE AJUSTES -->
+                <!-- DÚO 2 -->
                 <a href="https://wa.me/595985123172?text=Hola%20Sastreria%20Silva,%20necesito%20un%20servicio%20de%20ajustes%20de%20sastreria" 
                    class="duo-box" 
                    target="_blank" 
@@ -1029,7 +1055,7 @@
 
         </section>
 
-        <!-- COTIZADOR INTERACTIVO SEGÚN EVENTO -->
+        <!-- COTIZADOR SEGÚN EVENTO -->
         <section class="assistant-card">
             <h3 class="assistant-title">¿Para qué ocasión busca su traje?</h3>
             <p class="assistant-desc">Toque su evento para redactar su consulta de inmediato:</p>
@@ -1052,7 +1078,7 @@
             </a>
         </section>
 
-        <!-- SUCURSALES EN ENCARNACIÓN -->
+        <!-- SUCURSALES -->
         <section class="branches-flow" aria-label="Sucursales en Encarnación">
             
             <!-- SUCURSAL 1 -->
@@ -1118,7 +1144,7 @@
 
     </main>
 
-    <!-- SCRIPTS: CONTROL DE TEMA Y ASISTENTE -->
+    <!-- SCRIPTS -->
     <script>
         function seleccionarOcasion(elemento, evento) {
             document.querySelectorAll('.chip-btn').forEach(btn => btn.classList.remove('active'));
